@@ -3,6 +3,7 @@
 namespace libphonenumber\geocoding;
 
 
+use Giggsey\Locale\Locale;
 use libphonenumber\NumberParseException;
 use libphonenumber\PhoneNumber;
 use libphonenumber\PhoneNumberType;
@@ -27,10 +28,6 @@ class PhoneNumberOfflineGeocoder
 
     protected function __construct($phonePrefixDataDirectory)
     {
-        if(!extension_loaded('intl')) {
-            throw new \RuntimeException('The intl extension must be installed');
-        }
-
         $this->phoneUtil = PhoneNumberUtil::getInstance();
 
         $this->prefixFileReader = new PrefixFileReader(dirname(__FILE__) . $phonePrefixDataDirectory);
@@ -144,7 +141,7 @@ class PhoneNumberOfflineGeocoder
         }
 
         return Locale::getDisplayRegion(
-            Locale::countryCodeToLocale($regionCode),
+            '-' . $regionCode,
             $locale
         );
     }
