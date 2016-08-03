@@ -47,6 +47,12 @@ An [online demo](http://giggsey.com/libphonenumber/) is available, and the sourc
 ## Quick Examples
 Let's say you have a string representing a phone number from Switzerland. This is how you parse/normalize it into a PhoneNumber object:
 
+### Get phone number information
+```php
+$phoneInfo = \libphonenumber\PhoneNumberUtil::parserPhone($number);
+var_dump($phoneInfo);
+```
+
 ```php
 $swissNumberStr = "044 668 18 00";
 $phoneUtil = \libphonenumber\PhoneNumberUtil::getInstance();
