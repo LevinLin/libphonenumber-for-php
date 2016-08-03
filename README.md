@@ -53,6 +53,7 @@ $phoneInfo = \libphonenumber\PhoneNumberUtil::parserPhone($number);
 var_dump($phoneInfo);
 ```
 
+### official usage
 ```php
 $swissNumberStr = "044 668 18 00";
 $phoneUtil = \libphonenumber\PhoneNumberUtil::getInstance();
